@@ -2,6 +2,7 @@
 
 import { FC, useState } from "react"
 
+import { Icons } from "./icons"
 import { Input } from "./ui/input"
 
 interface APIKeyInputProps {}
@@ -16,11 +17,11 @@ const APIKeyInput: FC<APIKeyInputProps> = () => {
 
   return (
     <div>
-      <p className="mt-4 max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-        Enter your OpenAI API key here
+      <p className="mt-4 flex  max-w-[700px] text-lg text-muted-foreground sm:text-xl">
+        <Icons.key className="h-5 w-5 mr-2" /> Enter your OpenAI API key here
       </p>
 
-      <Input type="text" onChange={handleInputChange} />
+      <Input type="password" onChange={handleInputChange} />
     </div>
   )
 }

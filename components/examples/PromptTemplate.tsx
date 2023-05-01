@@ -1,17 +1,15 @@
 "use client"
 
 import { FC, useState } from "react"
+import { promptTemplateCall } from "@/actions/promptTemplateCall"
 import { FieldValues, useForm } from "react-hook-form"
 
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "../ui/button"
+import { Input } from "../ui/input"
 
-import { basicCall } from "../actions/basicCall"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
+interface PromptTemplateProps {}
 
-interface BasicQuestionProps {}
-
-const BasicQuestion: FC<BasicQuestionProps> = ({}) => {
+const PromptTemplate: FC<PromptTemplateProps> = ({}) => {
   const {
     register,
     handleSubmit,
@@ -20,7 +18,7 @@ const BasicQuestion: FC<BasicQuestionProps> = ({}) => {
     reset,
   } = useForm<FieldValues>({
     defaultValues: {
-      question: "",
+      product: "",
     },
   })
 
@@ -29,27 +27,34 @@ const BasicQuestion: FC<BasicQuestionProps> = ({}) => {
 
   const onSubmit = async (data: FieldValues) => {
     setLoading(true)
-    const response = await basicCall(data.question, window.openAI_API_KEY)
+    const response = await promptTemplateCall(
+      data.product,
+      window.openAI_API_KEY
+    )
     setLoading(false)
     setRes(response)
   }
 
   return (
-    <div className="flex flex-col items">
+    <div className="flex flex-col items my-6">
       <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-        Basic Question
+        Using Prompt Template
       </h3>
+      <p className="text-md text-muted-foreground mb-2">
+        Enter your product and AI will suggest a name and a tagline for your
+        product using <br /> a prompt template
+      </p>
 
-      {/* Question */}
+      {/* Get product name */}
 
       <div className="flex  gap-4 ">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex w-1/2 items-center gap-2"
         >
-          <Textarea
-            placeholder="Enter Prompt"
-            {...register("question", { required: true })}
+          <Input
+            placeholder="Enter your porduct to suggest company names"
+            {...register("product", { required: true })}
             className=""
           />
           {errors.question && <p>This field is required</p>}
@@ -68,4 +73,4 @@ const BasicQuestion: FC<BasicQuestionProps> = ({}) => {
   )
 }
 
-export default BasicQuestion
+export default PromptTemplate

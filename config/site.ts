@@ -12,7 +12,7 @@ export const siteConfig = {
   ],
   links: {
     twitter: "https://twitter.com/jeetchaudhuri",
-    github: "https://github.com/jeetch",
+    github: "https://github.com/jeetch/langchain-nextjs-demo",
     docs: "https://jeetchaudhuri.com",
   },
 }
