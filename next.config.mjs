@@ -4,12 +4,18 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  webpack(config) {
-    config.experiments = {
-      asyncWebAssembly: true,
-      layers: true,
-    };
+  // webpack(config) {
+  //   config.experiments = {
+  //     asyncWebAssembly: true,
+  //     layers: true,
+  //   };
 
+  //   return config;
+  // },
+
+  webpack(config) {
+    config.experiments = { ...config.experiments, topLevelAwait: true, asyncWebAssembly: true,
+          layers: true, };
     return config;
   },
 }

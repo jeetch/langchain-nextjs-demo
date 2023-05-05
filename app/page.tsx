@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import APIKeyInput from "@/components/APIKeyInput"
 import BasicQuestion from "@/components/examples/BasicQuestion"
 import PromptTemplate from "@/components/examples/PromptTemplate"
+import QADoc from "@/components/examples/QAdoc"
 
 export default function IndexPage() {
   return (
@@ -21,6 +22,7 @@ export default function IndexPage() {
       <div className="flex flex-col gap-4 mt-8">
         <BasicQuestion />
         <PromptTemplate />
+        <QADoc />
       </div>
     </section>
   )
