@@ -1,6 +1,6 @@
 # Lanchain Demo on Next.js 13 
 
-![screenshot](https://pasteboard.co/EVS7ikEOj6Pn.jpg)
+![screenshot](https://github.com/jeetch/langchain-nextjs-demo/blob/main/public/screenshot.jpg?raw=true)
 
 Simple implimentation of Langchain features like Q&A, prompt templates, chains, Q&A on custom documents using pinecone vectorstores
 
