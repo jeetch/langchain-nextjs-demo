@@ -16,5 +16,6 @@ To learn more about vector stores and vector embenddings, visit: https://www.jee
 
 ## Credits
 
-https://js.langchain.com/docs/
 https://github.com/mayooear/gpt4-pdf-chatbot-langchain
+
+https://js.langchain.com/docs/
