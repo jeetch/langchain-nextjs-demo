@@ -16,3 +16,4 @@ export const siteConfig = {
     docs: "https://jeetchaudhuri.com",
   },
 }
+
